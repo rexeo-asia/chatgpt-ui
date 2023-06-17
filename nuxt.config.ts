@@ -76,7 +76,7 @@ export default defineNuxtConfig({
             {
                 code: 'ms',
                 iso: 'ms-MY',
-                name: 'English',
+                name: 'Bahasa Malaysia',
                 file: 'ms-MY.json',
             }
         ],
