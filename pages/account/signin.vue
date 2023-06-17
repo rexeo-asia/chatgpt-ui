@@ -33,8 +33,8 @@
                     @keyup.enter="submit"
                     clearable
                     :type="passwordInputType"
-                    :append-inner-icon="passwordInputType === 'password' ? 'visibility' : 'visibility_off'"
-                    @click:append-inner="passwordInputType = passwordInputType === 'password' ? 'text' : 'password'"
+                    :append-inner-icon="passwordInputType === 'password' ? 'visibility_off' : 'visibility'"
+                    @click:append-inner="passwordInputType = passwordInputType === 'password' ? 'password' : 'text'"
                 ></v-text-field>
               </v-form>
 
