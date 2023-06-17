@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         head: {
             title: appName,
         },
+        baseURL: '/chat/'
     },
     runtimeConfig: {
         public: {
@@ -71,6 +72,12 @@ export default defineNuxtConfig({
                 iso: 'es-ES',
                 name: 'Español',
                 file: 'es-ES.json',
+            },
+            {
+                code: 'ms',
+                iso: 'ms-MY',
+                name: 'English',
+                file: 'ms-MY.json',
             }
         ],
         lazy: true,

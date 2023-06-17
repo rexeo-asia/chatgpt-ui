@@ -15,8 +15,26 @@ export const MODELS = {
         temperature: 0.7,
         top_p: 1.0
     },
+    'gpt-3.5-turbo-16k': {
+        name: 'gpt-3.5-turbo-16k',
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
+        total_tokens: 4096,
+        max_tokens: 1000,
+        temperature: 0.7,
+        top_p: 1.0
+    },
     'gpt-4': {
         name: 'gpt-4',
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
+        total_tokens: 8192,
+        max_tokens: 2000,
+        temperature: 0.7,
+        top_p: 1.0
+    },
+    'gpt-4-mobile': {
+        name: 'gpt-4-mobile',
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
         total_tokens: 8192,
