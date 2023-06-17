@@ -12,14 +12,14 @@ const route = useRoute()
 const conversation = ref(getDefaultConversationData())
 
 const loadConversation = async () => {
-  const { data, error } = await useAuthFetch('/api/chat/conversations/' + route.params.id)
+  const { data, error } = await useAuthFetch('/chat/api/chat/conversations/' + route.params.id)
   if (!error.value) {
     conversation.value = Object.assign(conversation.value, data.value)
   }
 }
 
 const loadMessage = async () => {
-  const { data, error } = await useAuthFetch('/api/chat/messages/?conversationId=' + route.params.id)
+  const { data, error } = await useAuthFetch('/chat/api/chat/messages/?conversationId=' + route.params.id)
   if (!error.value) {
     conversation.value.messages = data.value
     conversation.value.id = route.params.id

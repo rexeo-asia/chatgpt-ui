@@ -59,7 +59,7 @@ async function uploadFile() {
   loadingDoc.value = true
   const base64Data = await fileToBase64(file)
   try {
-    const { data, error } = await useAuthFetch('/api/chat/embedding_document/', {
+    const { data, error } = await useAuthFetch('/chat/api/chat/embedding_document/', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
@@ -86,7 +86,7 @@ async function uploadFile() {
 
 async function loadDocs() {
   loadingDoc.value = true
-  const { data, error } = await useAuthFetch('/api/chat/embedding_document/')
+  const { data, error } = await useAuthFetch('/chat/api/chat/embedding_document/')
   if (!error.value) {
     embeddingDocs.value = data.value
   }
@@ -98,7 +98,7 @@ async function deleteDocs(index_list) {
   for (let i = 0; i < index_list.length; i++) {
     let index = index_list[i]
     deletingDocIndex.value = index
-    const { data, error } = await useAuthFetch(`/api/chat/embedding_document/${embeddingDocs.value[index].id}/`, {
+    const { data, error } = await useAuthFetch(`/chat/api/chat/embedding_document/${embeddingDocs.value[index].id}/`, {
       method: 'DELETE'
     })
     deletingDocIndex.value = null

@@ -85,7 +85,7 @@ const fetchReply = async (message) => {
   }, webSearchParams)
 
   try {
-    await fetchEventSource('/api/conversation/', {
+    await fetchEventSource('/chat/api/conversation/', {
       signal: ctrl.signal,
       method: 'POST',
       headers: {

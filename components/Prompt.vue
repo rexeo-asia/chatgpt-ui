@@ -22,7 +22,7 @@ const addPrompt = async () => {
     return
   }
   submittingNewPrompt.value = true
-  const { data, error } = await useAuthFetch('/api/chat/prompts/', {
+  const { data, error } = await useAuthFetch('/chat/api/chat/prompts/', {
     method: 'POST',
     body: JSON.stringify({
       title: newTitlePrompt.value,
@@ -43,7 +43,7 @@ const editPrompt = (index) => {
 
 const updatePrompt = async (index) => {
   editingPrompt.value.updating = true
-  const { data, error } = await useAuthFetch(`/api/chat/prompts/${editingPrompt.value.id}/`, {
+  const { data, error } = await useAuthFetch(`/chat/api/chat/prompts/${editingPrompt.value.id}/`, {
     method: 'PUT',
     body: JSON.stringify({
       title: editingPrompt.value.title,
@@ -63,7 +63,7 @@ const cancelEditPrompt = () => {
 
 const deletePrompt = async (index) => {
   deletingPromptIndex.value = index
-  const { data, error } = await useAuthFetch(`/api/chat/prompts/${prompts.value[index].id}/`, {
+  const { data, error } = await useAuthFetch(`/chat/api/chat/prompts/${prompts.value[index].id}/`, {
     method: 'DELETE'
   })
   deletingPromptIndex.value = null
@@ -74,7 +74,7 @@ const deletePrompt = async (index) => {
 
 const loadPrompts = async () => {
   loadingPrompts.value = true
-  const { data, error } = await useAuthFetch('/api/chat/prompts/')
+  const { data, error } = await useAuthFetch('/chat/api/chat/prompts/')
   if (!error.value) {
     prompts.value = data.value
   }

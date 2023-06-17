@@ -32,7 +32,7 @@ const route = useRoute()
 const passwordInputType = ref('password')
 
 const signOut = async () => {
-  const { data, error } = await useFetch('/api/account/logout/', {
+  const { data, error } = await useFetch('/chat/api/account/logout/', {
     method: 'POST'
   })
   if (!error.value) {
@@ -45,7 +45,7 @@ const submit = async () => {
   const { valid } = await resetForm.value.validate()
   if (valid) {
     submitting.value = true
-    const { data, error } = await useFetch('/api/account/password/change/', {
+    const { data, error } = await useFetch('/chat/api/account/password/change/', {
       method: 'POST',
       body: JSON.stringify(formData.value)
     })

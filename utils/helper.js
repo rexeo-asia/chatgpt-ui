@@ -10,7 +10,7 @@ export const getDefaultConversationData = () => {
 }
 
 export const getConversations = async () => {
-    const { data, error } = await useAuthFetch('/api/chat/conversations/')
+    const { data, error } = await useAuthFetch('/chat/api/chat/conversations/')
     if (!error.value) {
         return data.value
     }
@@ -26,7 +26,7 @@ export const addConversation = (conversation) => {
 export const genTitle = async (conversationId) => {
     const { $i18n, $settings } = useNuxtApp()
     const openaiApiKey = useApiKey()
-    const { data, error } = await useAuthFetch('/api/gen_title/', {
+    const { data, error } = await useAuthFetch('/chat/api/gen_title/', {
         method: 'POST',
         body: {
             conversationId: conversationId,
@@ -47,7 +47,7 @@ export const genTitle = async (conversationId) => {
 }
 
 export const fetchUser = async () => {
-    return useMyFetch('/api/account/user/')
+    return useMyFetch('/chat/api/account/user/')
 }
 
 export const setUser = (userData) => {

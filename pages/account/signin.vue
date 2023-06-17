@@ -95,7 +95,7 @@ const submit = async () => {
   const { valid } = await signInForm.value.validate()
   if (valid) {
     submitting.value = true
-    const { data, error } = await useFetch('/api/account/login/', {
+    const { data, error } = await useFetch('/chat/api/account/login/', {
       method: 'POST',
       body: JSON.stringify(formData.value)
     })

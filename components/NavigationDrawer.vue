@@ -39,7 +39,7 @@ const editConversation = (index) => {
 
 const updateConversation = async (index) => {
   editingConversation.value.updating = true
-  const { data, error } = await useAuthFetch(`/api/chat/conversations/${editingConversation.value.id}/`, {
+  const { data, error } = await useAuthFetch(`/chat/api/chat/conversations/${editingConversation.value.id}/`, {
     method: 'PUT',
     body: JSON.stringify({
       topic: editingConversation.value.topic
@@ -55,7 +55,7 @@ const updateConversation = async (index) => {
 
 const deleteConversation = async (index) => {
   deletingConversationIndex.value = index
-  const { data, error } = await useAuthFetch(`/api/chat/conversations/${conversations.value[index].id}/`, {
+  const { data, error } = await useAuthFetch(`/chat/api/chat/conversations/${conversations.value[index].id}/`, {
     method: 'DELETE'
   })
   deletingConversationIndex.value = null
@@ -76,7 +76,7 @@ const showSnackbar = (text) => {
 }
 
 const loadMessage = async (conversation_id) => {
-  const { data, error } = await useAuthFetch(`/api/chat/messages/?conversationId=${conversation_id}`)
+  const { data, error } = await useAuthFetch(`/chat/api/chat/messages/?conversationId=${conversation_id}`)
   if (!error.value) {
     return data.value
   }
@@ -130,7 +130,7 @@ const importConversation = async () => {
   }
   let new_conversation_ids = []
   try {
-    const { data, error } = await useAuthFetch('/api/upload_conversations/', {
+    const { data, error } = await useAuthFetch('/chat/api/upload_conversations/', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
@@ -155,7 +155,7 @@ const importConversation = async () => {
 
 const clearConversations = async () => {
   deletingConversations.value = true
-  const { data, error } = await useAuthFetch(`/api/chat/conversations/delete_all`, {
+  const { data, error } = await useAuthFetch(`/chat/api/chat/conversations/delete_all`, {
     method: 'DELETE'
   })
   if (!error.value) {
@@ -176,7 +176,7 @@ const loadConversations = async () => {
 }
 
 const signOut = async () => {
-  const { data, error } = await useFetch('/api/account/logout/', {
+  const { data, error } = await useFetch('/chat/api/account/logout/', {
     method: 'POST'
   })
   if (!error.value) {
