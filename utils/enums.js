@@ -16,7 +16,7 @@ export const MODELS = {
         top_p: 1.0
     },
     'gpt-3.5-turbo-16k': {
-        name: 'gpt-3.5-16k',
+        name: 'gpt-3.5-turbo-16k',
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
         total_tokens: 16384,
